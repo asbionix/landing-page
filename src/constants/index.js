@@ -10,7 +10,7 @@ const navItems = [
   },
   {
     name: "Solutions",
-    link: "solutions",
+    link: "#solutiions-1",
     expandable: true,
     siblings: [
       {
