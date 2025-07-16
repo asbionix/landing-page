@@ -180,64 +180,87 @@ const Navbar = () => {
 				${isMobileMenuOpen ? 'opacity-100 transform' : 'max-h-0 opacity-0'}`}>
 				<div className="px-4 pt-4 pb-6 space-y-2 sm:px-5">
 					{navItems.map((item) => (
-						<Link to={item.link} key={item.name}>
-							{/* Main Item */}
-							<div
-								className={`flex justify-between items-center p-4 rounded-md text-base font-medium cursor-pointer transition-all duration-300 ${isScrolled
-									? 'text-white hover:text-[#39e75f] hover:bg-white/20'
-									: 'text-white hover:text-[#71d586] hover:bg-white/10'
-									}`}
-								onClick={() => {
-									if (item.expandable) {
-										setActiveDropdown(activeDropdown === item.name ? null : item.name);
-									} else {
-										setIsMobileMenuOpen(false);
-										setActiveDropdown(null);
-									}
-								}}
-							>
-								<span>{item.name}</span>
-								{item.expandable && (
-									<ChevronDown
-										className={`w-4 h-4 transform transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180' : ''}`}
-									/>
-								)}
-							</div>
+						<>
+							{item.name === 'Contact' ? (
+								<a href={item.link} key={item.name}>
+									{/* Main Item */}
+									<div
+										className={`flex justify-between items-center p-4 rounded-md text-base font-medium cursor-pointer transition-all duration-300 ${isScrolled
+											? 'text-white hover:text-[#39e75f] hover:bg-white/20'
+											: 'text-white hover:text-[#71d586] hover:bg-white/10'
+											}`}
+										onClick={() => {
+											if (item.expandable) {
+												setActiveDropdown(activeDropdown === item.name ? null : item.name);
+											} else {
+												setIsMobileMenuOpen(false);
+												setActiveDropdown(null);
+											}
+										}}
+									>
+										<span>{item.name}</span>
+									</div>
+								</a>
+							) : (
+								<Link to={item.link} key={item.name}>
+									{/* Main Item */}
+									<div
+										className={`flex justify-between items-center p-4 rounded-md text-base font-medium cursor-pointer transition-all duration-300 ${isScrolled
+											? 'text-white hover:text-[#39e75f] hover:bg-white/20'
+											: 'text-white hover:text-[#71d586] hover:bg-white/10'
+											}`}
+										onClick={() => {
+											if (item.expandable) {
+												setActiveDropdown(activeDropdown === item.name ? null : item.name);
+											} else {
+												setIsMobileMenuOpen(false);
+												setActiveDropdown(null);
+											}
+										}}
+									>
+										<span>{item.name}</span>
+										{item.expandable && (
+											<ChevronDown
+												className={`w-4 h-4 transform transition-transform duration-300 ${activeDropdown === item.name ? 'rotate-180' : ''}`}
+											/>
+										)}
+									</div>
 
-							{/* Accordion Content */}
-							{item.expandable && activeDropdown === item.name && (
-								<motion.div className={`pl-3 mt-2 space-y-1 max-h-[300px] overflow-y-auto`}
-									initial={{ height: 0, opacity: 0 }}
-									animate={{ height: "auto", opacity: 1 }}
-									exit={{ height: 0, opacity: 0 }}>
-									{item.siblings.map((sibling) => {
-										const IconComponent = sibling.icon;
-										return (
-											<a
-												href={`/feature/${sibling.link}`}
-												key={sibling.title}
-												className={`flex flex-col items-start gap-3 p-3 rounded-md transition-all duration-300 ${isScrolled
-													? 'text-white/90 hover:text-[#39e75f] hover:bg-white/15'
-													: 'text-white/90 hover:text-[#71d586] hover:bg-white/10'
-													}`}
-												onClick={() => setIsMobileMenuOpen(false)}
-											>
-												<div className='flex w-full justify-between'>
-													<div className='flex gap-3 items-center'>
-														<IconComponent className="w-5 h-5" />
-														<div className="text-sm font-medium align-middle">{sibling.title}</div>
-													</div>
-													<ExternalLink className="w-4 h-4 text-white/60 hover:text-white" />
-												</div>
-												<div className="text-xs text-white/60 leading-relaxed">
-													{sibling.description}
-												</div>
-											</a>
-										);
-									})}
-								</motion.div>
-							)}
-						</Link>
+									{/* Accordion Content */}
+									{item.expandable && activeDropdown === item.name && (
+										<motion.div className={`pl-3 mt-2 space-y-1 max-h-[300px] overflow-y-auto`}
+											initial={{ height: 0, opacity: 0 }}
+											animate={{ height: "auto", opacity: 1 }}
+											exit={{ height: 0, opacity: 0 }}>
+											{item.siblings.map((sibling) => {
+												const IconComponent = sibling.icon;
+												return (
+													<a
+														href={`/feature/${sibling.link}`}
+														key={sibling.title}
+														className={`flex flex-col items-start gap-3 p-3 rounded-md transition-all duration-300 ${isScrolled
+															? 'text-white/90 hover:text-[#39e75f] hover:bg-white/15'
+															: 'text-white/90 hover:text-[#71d586] hover:bg-white/10'
+															}`}
+														onClick={() => setIsMobileMenuOpen(false)}
+													>
+														<div className='flex w-full justify-between'>
+															<div className='flex gap-3 items-center'>
+																<IconComponent className="w-5 h-5" />
+																<div className="text-sm font-medium align-middle">{sibling.title}</div>
+															</div>
+															<ExternalLink className="w-4 h-4 text-white/60 hover:text-white" />
+														</div>
+														<div className="text-xs text-white/60 leading-relaxed">
+															{sibling.description}
+														</div>
+													</a>
+												);
+											})}
+										</motion.div>
+									)}
+								</Link>)}
+						</>
 					))}
 					<div className='flex justify-center w-full mt-4'>
 						<BookDemo />
