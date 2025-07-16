@@ -1,24 +1,47 @@
-import Header from "./sections/Header.jsx";
-import Hero from "./sections/Hero.jsx";
-import Features from "./sections/Features.jsx";
-import Faq from "./sections/Faq.jsx";
-import Testimonials from "./sections/Testimonials.jsx";
-import Download from "./sections/Download.jsx";
-import Footer from "./sections/Footer.jsx";
+import React, { useEffect } from 'react';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './lib/utils';
 
-const App = () => {
+import StickyNavBar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home/Home';
+import Solutions from './pages/Solutions/Solutions';
+import Contact from './pages/Home/components/CTA/Contact';
+import AboutUs from './pages/About/About';
+import Feature from './pages/Feature/Feature';
+
+function App() {
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      // Small delay to ensure DOM is rendered
+      setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
-    <main className="overflow-hidden">
-      <Header />
-      <Hero />
-      <Features />
-      {/* <Pricing /> */}
-      <Faq />
-      <Testimonials />
-      <Download />
+    <Router>
+      <ScrollToTop />
+      <StickyNavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/feature/:solution" element={<Feature />} />
+      </Routes>
+      <Contact />
       <Footer />
-    </main>
+    </Router>
   );
-};
+}
 
 export default App;
