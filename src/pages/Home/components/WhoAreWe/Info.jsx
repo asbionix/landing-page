@@ -76,8 +76,8 @@ export default function Info() {
                         </div>
 
                         {/* Floating elements */}
-                        <div className="absolute -top-4 -right-4 w-10 h-10 bg-gradient-to-r from-gray-400 to-gray-300 rounded-full animate-bounce"></div>
-                        <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-gradient-to-r from-gray-400 to-gray-300 rounded-full animate-bounce"></div>
+                        <div className="absolute -top-7 -right-4 w-10 h-10 bg-gradient-to-r from-gray-400 to-gray-300 rounded-full animate-bounce"></div>
+                        <div className="absolute -left-4 w-10 h-10 bg-gradient-to-r from-gray-400 to-gray-300 rounded-full animate-bounce"></div>
                     </div>
                 </div>
             </div>
