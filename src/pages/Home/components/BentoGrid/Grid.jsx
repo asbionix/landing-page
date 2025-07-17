@@ -1,11 +1,12 @@
 import React from 'react';
-import { Home, LayoutGrid, Tv, Leaf, Glasses } from 'lucide-react';
+import { Home, LayoutGrid, Tv, Leaf, Glasses, Book } from 'lucide-react';
 
 import workspace from '../../../../assets/images/workspace.png';
 import screen from '../../../../assets/images/screen1.png';
 import house from '../../../../assets/images/house.png';
 import eco from '../../../../assets/images/eco.png';
 import vr from '../../../../assets/images/vr.png';
+import brochure from '../../../../assets/images/brochure.png';
 
 import TextBlocks from '../../../../components/TextBlocks';
 
@@ -34,7 +35,7 @@ export default function BentoGrid() {
 							</p>
 						</div>
 						<div>
-							<img src={house} alt="Smart Home" className="w-full h-auto mt-4 hover:scale-110 transition-all duration-200"  />
+							<img src={house} alt="Smart Home" className="w-full h-auto mt-4 hover:scale-110 transition-all duration-200" />
 						</div>
 					</div>
 
@@ -42,13 +43,18 @@ export default function BentoGrid() {
 					<div className="bg-[#2C2C2C] relative rounded-2xl p-6 row-span-1 sm:row-span-2 sm:col-start-1 sm:row-start-4">
 						<div className="flex items-center justify-between mb-4">
 							<div className="">
-								<Tv className="w-8 h-8" />
+								<Book className="w-8 h-8" />
 							</div>
 						</div>
-						<h3 className="text-lg font-medium mb-3">Transform your smart workspace</h3>
 						<div className="flex items-center justify-center">
-							<img src={workspace} alt="Smart Home" className="w-full hover:scale-[1.4] transition-all duration-200 scale-[1.28] sm:scale-[1.35] h-auto" />
+							<img src={brochure} alt="Asbionix Brochure icon" className="-translate-y-4 w-3/4 sm:w-1/2 hover:scale-[1.5] transition-all duration-200 scale-[1.28] sm:scale-[1.35] h-auto" />
 						</div>
+						<a
+							href="https://drive.google.com/file/d/1WeBEtv-hnOaOKVfG-HQ9oSRK5sQDfLXs/view?usp=share_link" target='_blank'
+							className='px-4 py-3 sm:py-2 mt-5 w-full rounded-full bg-white button text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]'
+						>
+							Explore Brochure
+						</a>
 					</div>
 
 					{/* Center Column - Easy to Use App */}
@@ -78,7 +84,7 @@ export default function BentoGrid() {
 						<h3 className="text-xl font-semibold mb-2">Want a customised UI as per your wish?</h3>
 						<a
 							href="https://demo.asbionix.in" target='_blank'
-							className='px-4 py-3 sm:py-2 w-full rounded-full bg-white button text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]'
+							className='px-4 py-3 sm:py-2 w-full mt-2 rounded-full bg-white button text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]'
 						>
 							Customised UI Demo
 						</a>
