@@ -10,6 +10,7 @@ import Solutions from './pages/Solutions/Solutions';
 import Contact from './pages/Home/components/CTA/Contact';
 import AboutUs from './pages/About/About';
 import Feature from './pages/Feature/Feature';
+import Page404 from './pages/NotFound/Page404';
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/feature/:solution" element={<Feature />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Contact />
       <Footer />
