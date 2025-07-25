@@ -6,10 +6,12 @@ import Features from './components/Features/Features';
 import Info from './components/WhoAreWe/Info';
 import Testimony from './components/Testimony/Testimony';
 import FAQs from './components/FAQs/FAQ';
+import WelcomePopup from '../../components/WelcomePopup';
 
 function Home() {
     return (
         <>
+            <WelcomePopup />
             <Hero />
             <Info />
             {/* <Stats /> */}

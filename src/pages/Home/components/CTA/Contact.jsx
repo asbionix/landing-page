@@ -22,7 +22,7 @@ export default function Contact() {
     {
       id: 2,
       title: "Coimbatore Office",
-      address: "406, C Block, Silicon City Apartment, Saravanampatti, Coimbatore - 641035"
+      address: "Raintree Workspace, 102, 8th Street, VKL NAGAR, Thudiyalur, Coimbatore - 641034"
     }
   ];
 
