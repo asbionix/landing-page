@@ -11,7 +11,7 @@ import WelcomePopup from '../../components/WelcomePopup';
 function Home() {
     return (
         <>
-            <WelcomePopup />
+            {/* <WelcomePopup /> */}
             <Hero />
             <Info />
             {/* <Stats /> */}

@@ -119,7 +119,7 @@ export default function BookDemoPopup() {
               <X size={24} />
             </button>
 
-            {/* <div className="text-center mb-6">
+            <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-gray-800 mb-2">Book Your Demo</h2>
               <p className="text-gray-600">Fill in your details and we'll get in touch</p>
             </div>
@@ -196,8 +196,7 @@ export default function BookDemoPopup() {
               >
                 Book Demo
               </button>
-            </div> */}
-            <p className='py-20 text-lg text-center'>Demo Bookings will open from 3rd August, 2025!</p>
+            </div>
           </div>
         </div >, document.body
       )
