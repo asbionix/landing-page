@@ -17,7 +17,7 @@ function Home() {
             {/* <Stats /> */}
             <Features />
             <Grid />
-            {/* <Testimony /> */}
+            <Testimony />
             <FAQs />
         </>
     )

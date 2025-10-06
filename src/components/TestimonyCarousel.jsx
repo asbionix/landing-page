@@ -8,30 +8,10 @@ const TestimonyCarousel = () => {
 
     const testimonials = [
         {
-            name: "Sarah Johnson",
-            position: "CEO, TechCorp",
-            content: "This service has completely transformed how we operate. The attention to detail and customer support is exceptional."
+            name: "Mr. Balaji",
+            position: "Casagrand Solitaire",
+            content: "We recently installed a home theatre unit from Asbionix at our Casa Grand Solitaire community and were extremely pleased with the experience. The customer service was excellent, the installation was completed promptly, and the team took the time to clearly explain how to use the system. Overall, it was a smooth and satisfying experience!"
         },
-        {
-            name: "Michael Chen",
-            position: "Creative Director, Design Studio",
-            content: "Working with this team has been an absolute pleasure. They delivered beyond our expectations and on time."
-        },
-        {
-            name: "Emily Rodriguez",
-            position: "Marketing Manager, StartupXYZ",
-            content: "The results speak for themselves. Our conversion rates increased by 300% within the first month of implementation."
-        },
-        {
-            name: "David Thompson",
-            position: "Founder, InnovateLab",
-            content: "Professional, reliable, and incredibly talented. I wouldn't hesitate to recommend their services to anyone."
-        },
-        {
-            name: "Lisa Wang",
-            position: "VP of Operations, GlobalTech",
-            content: "The level of expertise and commitment they bring to every project is truly remarkable. Outstanding work!"
-        }
     ];
 
     const slideTo = (index, dir) => {
@@ -66,20 +46,20 @@ const TestimonyCarousel = () => {
 
     return (
         <div className="flex items-center px-4">
-            <div className="w-full max-w-7xl mx-auto bg-[#2C2C2C] rounded-2xl p-8">
+            <div className="w-full max-w-7xl mx-auto bg-[#2C2C2C] rounded-2xl p-4 sm:p-8">
                 {/* === DESKTOP === */}
                 <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center lg:min-h-[300px]">
                     <div className="col-span-12 flex justify-end">
                         <div className="space-x-6">
-                            <button
+                            <button disabled={testimonials.length <= 1}
                                 onClick={prevTestimonial}
-                                className="p-4 hover:bg-white/90 hover:text-black/80 text-white cursor-pointer rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 hover:scale-105"
+                                className="p-4 hover:bg-white/90 hover:text-black/80 text-white cursor-pointer rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <ChevronLeft className="w-6 h-6" />
                             </button>
-                            <button
+                            <button disabled={testimonials.length <= 1}
                                 onClick={nextTestimonial}
-                                className="p-4 hover:bg-white/90 hover:text-black/80 text-white cursor-pointer rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 hover:scale-105"
+                                className="p-4 hover:bg-white/90 hover:text-black/80 text-white cursor-pointer rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <ChevronRight className="w-6 h-6" />
                             </button>
@@ -95,18 +75,21 @@ const TestimonyCarousel = () => {
                                 {currentTestimonial.position}
                             </p>
 
-                            <div className="flex space-x-2 mt-6">
-                                {testimonials.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => slideTo(index, index > currentIndex ? 'left' : 'right')}
-                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                                            ? 'bg-white scale-110'
-                                            : 'bg-gray-600 hover:bg-gray-500'
-                                            }`}
-                                    />
-                                ))}
-                            </div>
+                            {/* Pagination Dots */}
+                            {testimonials.length > 1 && (
+                                <div className="flex space-x-2 mt-6">
+                                    {testimonials.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => slideTo(index, index > currentIndex ? 'left' : 'right')}
+                                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
+                                                ? 'bg-white scale-110'
+                                                : 'bg-gray-600 hover:bg-gray-500'
+                                                }`}
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
 
@@ -119,7 +102,7 @@ const TestimonyCarousel = () => {
 
                 {/* === MOBILE / TABLET === */}
                 <div
-                    className="lg:hidden relative overflow-hidden min-h-[340px]"
+                    className="lg:hidden relative overflow-hidden min-h-[520px] h-full"
                     {...swipeHandlers}
                 >
                     <div
@@ -144,18 +127,21 @@ const TestimonyCarousel = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="absolute bottom-0 w-full flex justify-center space-x-2 mt-4">
-                        {testimonials.map((_, index) => (
-                            <button
-                                key={index}
-                                onClick={() => slideTo(index, index > currentIndex ? 'left' : 'right')}
-                                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
-                                    ? 'bg-white scale-110'
-                                    : 'bg-gray-600 hover:bg-gray-500'
-                                    }`}
-                            />
-                        ))}
-                    </div>
+                    {/* Pagination Dots */}
+                    {testimonials.length > 1 && (
+                        <div className="absolute bottom-0 w-full flex justify-center space-x-2 mt-4">
+                            {testimonials.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => slideTo(index, index > currentIndex ? 'left' : 'right')}
+                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
+                                        ? 'bg-white scale-110'
+                                        : 'bg-gray-600 hover:bg-gray-500'
+                                        }`}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
