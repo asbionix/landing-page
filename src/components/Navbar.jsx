@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Menu, X, ChevronDown, Link2, Link2OffIcon, ExternalLink } from 'lucide-react';
+import { Menu, X, ChevronDown, Link2, Link2OffIcon, ExternalLink, LucideStore } from 'lucide-react';
 import Logo from '../assets/logos/logo.png';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -152,7 +152,12 @@ const Navbar = () => {
 						</div>
 					</div>
 
-					<div className='hidden md:block'>
+					<div className='hidden md:flex items-center gap-4'>
+						<button onClick={() => window.open('https://retailhub.asbionix.in', '_blank')}
+							className="ml-4 p-2  cursor-pointer rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-1 bg-white hover:bg-white/80 text-black">
+							<LucideStore className="w-4 h-4" />
+							Visit Store
+						</button>
 						<BookDemo />
 					</div>
 
@@ -186,8 +191,8 @@ const Navbar = () => {
 									{/* Main Item */}
 									<div
 										className={`flex justify-between items-center p-4 rounded-md text-base font-medium cursor-pointer transition-all duration-300 ${isScrolled
-												? 'text-white hover:text-[#39e75f] hover:bg-white/20'
-												: 'text-white hover:text-[#71d586] hover:bg-white/10'
+											? 'text-white hover:text-[#39e75f] hover:bg-white/20'
+											: 'text-white hover:text-[#71d586] hover:bg-white/10'
 											}`}
 										onClick={() => {
 											setIsMobileMenuOpen(false);
@@ -203,8 +208,8 @@ const Navbar = () => {
 									{/* Main Item */}
 									<div
 										className={`flex justify-between items-center p-4 rounded-md text-base font-medium cursor-pointer transition-all duration-300 ${isScrolled
-												? 'text-white hover:text-[#39e75f] hover:bg-white/20'
-												: 'text-white hover:text-[#71d586] hover:bg-white/10'
+											? 'text-white hover:text-[#39e75f] hover:bg-white/20'
+											: 'text-white hover:text-[#71d586] hover:bg-white/10'
 											}`}
 										onClick={() => {
 											setActiveDropdown(activeDropdown === item.name ? null : item.name);
@@ -232,8 +237,8 @@ const Navbar = () => {
 														href={`/feature/${sibling.link}`}
 														key={sibling.title}
 														className={`flex flex-col items-start gap-3 p-3 rounded-md transition-all duration-300 ${isScrolled
-																? 'text-white/90 hover:text-[#39e75f] hover:bg-white/15'
-																: 'text-white/90 hover:text-[#71d586] hover:bg-white/10'
+															? 'text-white/90 hover:text-[#39e75f] hover:bg-white/15'
+															: 'text-white/90 hover:text-[#71d586] hover:bg-white/10'
 															}`}
 														onClick={() => setIsMobileMenuOpen(false)}
 													>
@@ -258,8 +263,8 @@ const Navbar = () => {
 								<Link to={item.link}>
 									<div
 										className={`flex justify-between items-center p-4 rounded-md text-base font-medium cursor-pointer transition-all duration-300 ${isScrolled
-												? 'text-white hover:text-[#39e75f] hover:bg-white/20'
-												: 'text-white hover:text-[#71d586] hover:bg-white/10'
+											? 'text-white hover:text-[#39e75f] hover:bg-white/20'
+											: 'text-white hover:text-[#71d586] hover:bg-white/10'
 											}`}
 										onClick={() => {
 											setIsMobileMenuOpen(false);
@@ -272,7 +277,12 @@ const Navbar = () => {
 							)}
 						</div>
 					))}
-					<div className='flex justify-center w-full mt-4'>
+					<div className='flex flex-col gap-4 justify-center w-full mt-4'>
+						<button onClick={() => window.open('https://retailhub.asbionix.in', '_blank')}
+							className="p-3 cursor-pointer rounded-full text-sm font-medium transition-all duration-300 flex justify-center items-center gap-1 bg-white hover:bg-white/80 text-black">
+							<LucideStore className="w-4 h-4" />
+							Visit Store
+						</button>
 						<BookDemo />
 					</div>
 				</div>
